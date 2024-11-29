@@ -1,5 +1,49 @@
-<form id="registerForm">
-    <input type="email" id="registerEmail" placeholder="Email" required>
-    <input type="password" id="registerPassword" placeholder="Mật khẩu" required>
-    <button onclick="registerUser()">Đăng ký</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form login!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="login-container">
+        <h1 class="login-title">Đăng nhập</h1>
+        <form class="login-form">
+            <!-- Thay đổi placeholder thành "Email" -->
+            <input type="text" placeholder="Tên người dùng hoặc Email" class="input-field" required>
+            <input type="password" placeholder="Mật khẩu" class="input-field" required>
+            <button type="submit" class="login-button">ĐĂNG NHẬP</button>
+        </form>
+        <p class="register-text">
+            Bạn chưa có tài khoản? 
+            <a href="resiger.html" class="register-link">Đăng ký</a>
+        </p>
+    </div>
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngừng việc gửi form
+            const email = document.querySelector('.input-field[type="text"]').value;
+            const password = document.querySelector('.input-field[type="password"]').value;
+
+            // Kiểm tra nếu email là Gmail hợp lệ và mật khẩu đúng
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (emailRegex.test(email) && password === '1234') {
+                alert('Đăng nhập thành công!');
+                setTimeout(function() {
+                    window.location.href = 'https://tuankhangmods.me'; // Đổi link thành trang đích của bạn
+                }, 400); // Thời gian chờ trước khi chuyển hướng (400ms)
+            } else {
+                alert('Email hoặc mật khẩu không đúng!');
+            }
+        });
+    </script>
+</body>
+</html>
